@@ -81,20 +81,7 @@ function GalaxyParticles({ onDive }: { onDive: () => void }) {
                     vertexColors={true}
                 />
             </points>
-            <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-                <Text
-                    position={[0, 0, 0]}
-                    fontSize={0.5}
-                    color="#00ffff"
-                    anchorX="center"
-                    anchorY="middle"
-                    // Default font used to avoid missing file issues
-                    outlineWidth={0.02}
-                    outlineColor="#000000"
-                >
-                    DIVE INTO ARCHIVES
-                </Text>
-            </Float>
+            {/* 3D Text removed in favor of HTML overlay */}
         </group>
     );
 }
@@ -107,8 +94,8 @@ export default function GalaxyEntry() {
     };
 
     return (
-        <section className="relative h-[80vh] w-full bg-void flex flex-col items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 z-0">
+        <section className="relative h-[80vh] w-full bg-void flex flex-col items-center justify-start pt-12 overflow-hidden">
+            <div className="absolute inset-0 z-0 cursor-pointer" onClick={handleDive}>
                 <Canvas camera={{ position: [0, 3, 5], fov: 60 }}>
                     <color attach="background" args={['#000000']} />
                     <GalaxyParticles onDive={handleDive} />
@@ -116,15 +103,21 @@ export default function GalaxyEntry() {
                 </Canvas>
             </div>
 
-            <div className="px-6 relative z-10 pointer-events-none text-center mt-[40vh]">
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+            <div className="relative z-10 pointer-events-none flex flex-col items-center w-full">
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="text-neon-cyan font-mono text-sm tracking-[0.3em] uppercase bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-neon-cyan/30"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="pointer-events-auto cursor-pointer group"
+                    onClick={handleDive}
                 >
-                    // Access Neural Database
-                </motion.p>
+                    <div className="glass-panel px-10 py-4 rounded-full border border-white/10 shadow-[0_0_50px_-12px_rgba(168,85,247,0.3)] hover:shadow-[0_0_80px_-12px_rgba(168,85,247,0.6)] transition-all duration-300 backdrop-blur-md bg-black/40 group-hover:bg-black/50">
+                        <h2 className="text-xl md:text-3xl font-display tracking-widest text-center text-white/90 uppercase">
+                            Play with <span className="shimmer-purple mx-2">GALAXY</span>
+                        </h2>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

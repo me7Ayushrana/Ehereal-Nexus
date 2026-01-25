@@ -111,3 +111,55 @@ body {
 .animate-noise {
   animation: noise 0.2s steps(10) infinite;
 }
+
+@keyframes shimmer-gold {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.shimmer-gold {
+  background: linear-gradient(90deg,
+      #FFD700 0%,
+      #ffffff 25%,
+      #FFD700 50%,
+      #ffffff 75%,
+      #FFD700 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer-gold 3s linear infinite;
+  display: inline-block;
+  font-weight: bold;
+}
+
+@keyframes shimmer-purple {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.shimmer-purple {
+  background: linear-gradient(90deg,
+      #a855f7 0%,
+      #ffffff 25%,
+      #a855f7 50%,
+      #ffffff 75%,
+      #a855f7 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer-purple 3s linear infinite;
+  display: inline-block;
+  font-weight: bold;
+}
