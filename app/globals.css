@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-void: #030305;
+  --color-neon-cyan: #00f3ff;
+  --color-hologram-pink: #ff00aa;
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-orbitron);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #030305;
+  --foreground: #ededed;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-void);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+/* Custom Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-glass-border);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+}
+
+@keyframes shimmer-gold {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.animate-shimmer-gold {
+  background: linear-gradient(90deg,
+      #ffffff 0%,
+      #ffffff 40%,
+      #FFD700 50%,
+      /* Gold */
+      #ffffff 60%,
+      #ffffff 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer-gold 3s linear infinite;
+}
+
+/* Alien Theme Utilities */
+.bg-radial-gradient-vignette {
+  background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+@keyframes noise {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -5%);
+  }
+
+  20% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(5%, -10%);
+  }
+
+  40% {
+    transform: translate(-5%, 15%);
+  }
+
+  50% {
+    transform: translate(-10%, 5%);
+  }
+
+  60% {
+    transform: translate(15%, 0);
+  }
+
+  70% {
+    transform: translate(0, 10%);
+  }
+
+  80% {
+    transform: translate(-15%, 0);
+  }
+
+  90% {
+    transform: translate(10%, 5%);
+  }
+}
+
+.animate-noise {
+  animation: noise 0.2s steps(10) infinite;
 }
