@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function WorkStackPromo() {
     return (
-        <section className="w-full py-20 px-4 flex justify-center items-center">
+        <section id="collaborate" className="w-full py-20 px-4 flex justify-center items-center">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

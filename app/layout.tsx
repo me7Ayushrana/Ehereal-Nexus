@@ -6,7 +6,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Preloader from "@/components/Preloader";
-import ParticleBackground from "@/components/ParticleBackground";
+import StarfieldBackground from "@/components/StarfieldBackground";
 import AlienOverlay from "@/components/AlienOverlay";
 import AlienGlyphs from "@/components/AlienGlyphs";
 // ...
@@ -45,7 +45,7 @@ export default function RootLayout({
           <CustomCursor />
           <AlienOverlay />
           <AlienGlyphs />
-          <ParticleBackground />
+          <StarfieldBackground />
           <Navbar />
           {children}
         </SmoothScroll>

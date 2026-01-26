@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import GlassCard from "./GlassCard";
+import TiltCard from "./TiltCard";
 import {
     Bot,
     Cpu,
@@ -69,15 +70,17 @@ export default function Services() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                        <GlassCard className="p-8 h-full flex flex-col items-center text-center  hover:bg-white/[0.08] group">
-                            <div className="mb-6 p-4 rounded-full bg-white/5 border border-white/10 group-hover:border-neon-cyan/50 transition-colors shadow-[0_0_15px_-5px_transparent] group-hover:shadow-[0_0_20px_-5px_var(--color-neon-cyan)]">
-                                {service.icon}
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 text-white group-hover:text-neon-cyan transition-colors">{service.title}</h3>
-                            <p className="text-gray-400 leading-relaxed text-sm">
-                                {service.description}
-                            </p>
-                        </GlassCard>
+                        <TiltCard className="h-full">
+                            <GlassCard className="p-8 h-full flex flex-col items-center text-center hover:bg-white/[0.08] group">
+                                <div className="mb-6 p-4 rounded-full bg-white/5 border border-white/10 group-hover:border-neon-cyan/50 transition-colors shadow-[0_0_15px_-5px_transparent] group-hover:shadow-[0_0_20px_-5px_var(--color-neon-cyan)] relative z-10">
+                                    {service.icon}
+                                </div>
+                                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-neon-cyan transition-colors relative z-10">{service.title}</h3>
+                                <p className="text-gray-400 leading-relaxed text-sm relative z-10">
+                                    {service.description}
+                                </p>
+                            </GlassCard>
+                        </TiltCard>
                     </motion.div>
                 ))}
             </div>

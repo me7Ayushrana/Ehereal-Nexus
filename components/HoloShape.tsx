@@ -47,7 +47,7 @@ function AnimatedSphere() {
 
 export default function HoloShape() {
     return (
-        <div className="absolute inset-0 z-0 h-full w-full pointer-events-none opacity-40">
+        <div className="absolute inset-0 z-0 h-full w-full pointer-events-none opacity-80">
             <Canvas dpr={[1, 2]}> {/* Limit pixel ratio for performance on high-res screens */}
                 <ambientLight intensity={0.5} />
                 <directionalLight position={[2, 5, 2]} intensity={1} />

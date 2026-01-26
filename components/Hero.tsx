@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import HoloShape from "./HoloShape";
+import VoidSphere from "./VoidSphere";
 import GlassCard from "./GlassCard";
 import MagneticButton from "./MagneticButton";
 
@@ -34,6 +35,7 @@ export default function Hero() {
     return (
         <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
             {/* 3D Background */}
+            <VoidSphere />
             <HoloShape />
 
             {/* Content */}
