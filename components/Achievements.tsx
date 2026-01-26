@@ -52,7 +52,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export default function Achievements() {
     return (
-        <section className="py-20 px-6 max-w-7xl mx-auto border-t border-white/5 bg-white/[0.01]">
+        <section id="achievements" className="py-20 px-6 max-w-7xl mx-auto border-t border-white/5 bg-white/[0.01]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -24,6 +24,13 @@ export default function Hero() {
         }
     };
 
+    const scrollToSection = (id: string, position: ScrollLogicalPosition = "start") => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: position });
+        }
+    };
+
     return (
         <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
             {/* 3D Background */}
@@ -60,13 +67,19 @@ export default function Hero() {
                 </motion.p>
 
                 <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <GlassCard className="group cursor-pointer px-8 py-4 bg-white/5 border-neon-cyan/20 hover:bg-neon-cyan/10">
+                    <GlassCard
+                        className="group cursor-pointer px-8 py-4 bg-white/5 border-neon-cyan/20 hover:bg-neon-cyan/10 active:scale-95 transition-all duration-200"
+                        onClick={() => scrollToSection('achievements')}
+                    >
                         <span className="font-mono text-sm tracking-widest group-hover:text-neon-cyan transition-colors">
                             EXPLORE PROJECTS
                         </span>
                     </GlassCard>
 
-                    <MagneticButton className="px-8 py-4 text-sm font-mono tracking-widest text-gray-500 hover:text-white transition-colors uppercase border border-transparent hover:border-white/20 rounded-full">
+                    <MagneticButton
+                        className="px-8 py-4 text-sm font-mono tracking-widest text-gray-500 hover:text-white transition-colors uppercase border border-transparent hover:border-white/20 rounded-full active:scale-95"
+                        onClick={() => scrollToSection('contact')}
+                    >
                         Join The Nexus
                     </MagneticButton>
                 </motion.div>

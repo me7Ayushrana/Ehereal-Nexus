@@ -4,8 +4,10 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-void: #030305;
-  --color-neon-cyan: #00f3ff;
-  --color-hologram-pink: #ff00aa;
+  --color-neon-cyan: #F8FAFC;
+  /* Starlight Silver */
+  --color-hologram-pink: #d8b4fe;
+  /* Softer Lavender */
   --color-glass-border: rgba(255, 255, 255, 0.1);
 
   --font-sans: var(--font-inter);
@@ -31,7 +33,7 @@ body {
 }
 
 .text-glow {
-  text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 @keyframes shimmer-gold {

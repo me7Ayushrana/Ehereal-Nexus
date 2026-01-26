@@ -3,7 +3,13 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-export default function MagneticButton({ children, className }: { children: React.ReactNode; className?: string }) {
+interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    children: React.ReactNode;
+    className?: string;
+    strength?: number;
+}
+
+export default function MagneticButton({ children, className = "", strength = 30, ...props }: MagneticButtonProps) {
     const ref = useRef<HTMLButtonElement>(null);
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -26,7 +32,8 @@ export default function MagneticButton({ children, className }: { children: Reac
             onMouseLeave={handleMouseLeave}
             animate={{ x: position.x * 0.5, y: position.y * 0.5 }}
             transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-            className={className}
+            className={`cursor-pointer ${className}`}
+            {...(props as any)}
         >
             {children}
         </motion.button>

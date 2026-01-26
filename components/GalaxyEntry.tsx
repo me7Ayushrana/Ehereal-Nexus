@@ -19,8 +19,8 @@ function GalaxyParticles({ onDive }: { onDive: () => void }) {
         spin: 1,
         randomness: 0.2,
         randomnessPower: 3,
-        insideColor: "#00ffff", // Neon Cyan
-        outsideColor: "#ff00ff", // Magenta/Purple
+        insideColor: "#ffffff", // Pure White Core
+        outsideColor: "#a855f7", // Deep Purple Edge
     };
 
     const particles = useMemo(() => {
@@ -94,7 +94,7 @@ export default function GalaxyEntry() {
     };
 
     return (
-        <section className="relative h-[80vh] w-full bg-void flex flex-col items-center justify-start pt-12 overflow-hidden">
+        <section id="galaxy" className="relative h-[80vh] w-full bg-void flex flex-col items-center justify-start pt-12 overflow-hidden">
             <div className="absolute inset-0 z-0 cursor-pointer" onClick={handleDive}>
                 <Canvas camera={{ position: [0, 3, 5], fov: 60 }}>
                     <color attach="background" args={['#000000']} />
