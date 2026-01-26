@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Phone, Instagram, Mail } from "lucide-react";
 
 export default function AuthorPromo() {
     return (
@@ -34,6 +34,48 @@ export default function AuthorPromo() {
                     {/* Subtle underline effect */}
                     <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-50 group-hover:scale-x-100 transition-transform duration-500" />
                 </motion.a>
+
+                {/* Connect Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="mt-12 flex flex-col items-center gap-6"
+                >
+                    <div className="h-px w-24 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+                    <div className="glass-panel px-8 py-6 rounded-2xl border border-white/5 bg-black/20 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] flex flex-col md:flex-row gap-6 md:gap-12 items-center">
+                        {/* WhatsApp */}
+                        <a href="https://wa.me/917033885133" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group/item">
+                            <div className="p-2 rounded-full bg-white/5 group-hover/item:bg-white/10 transition-colors">
+                                <Phone className="w-4 h-4 text-green-400" />
+                            </div>
+                            <span className="text-sm font-light text-white/70 group-hover/item:text-white transition-colors">
+                                +91 70338 85133
+                            </span>
+                        </a>
+
+                        {/* Instagram */}
+                        <a href="https://instagram.com/ayushrana.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group/item">
+                            <div className="p-2 rounded-full bg-white/5 group-hover/item:bg-white/10 transition-colors">
+                                <Instagram className="w-4 h-4 text-pink-400" />
+                            </div>
+                            <span className="text-sm font-light text-white/70 group-hover/item:text-white transition-colors">
+                                @ayushrana.me
+                            </span>
+                        </a>
+
+                        {/* Mail */}
+                        <a href="mailto:ayushamit007@gmail.com" className="flex items-center gap-3 group/item">
+                            <div className="p-2 rounded-full bg-white/5 group-hover/item:bg-white/10 transition-colors">
+                                <Mail className="w-4 h-4 text-blue-400" />
+                            </div>
+                            <span className="text-sm font-light text-white/70 group-hover/item:text-white transition-colors">
+                                ayushamit007@gmail.com
+                            </span>
+                        </a>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

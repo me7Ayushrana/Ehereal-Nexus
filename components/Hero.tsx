@@ -69,7 +69,7 @@ export default function Hero() {
                 <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <GlassCard
                         className="group cursor-pointer px-8 py-4 bg-white/5 border-neon-cyan/20 hover:bg-neon-cyan/10 active:scale-95 transition-all duration-200"
-                        onClick={() => scrollToSection('achievements')}
+                        onClick={() => scrollToSection('galaxy')}
                     >
                         <span className="font-mono text-sm tracking-widest group-hover:text-neon-cyan transition-colors">
                             EXPLORE PROJECTS
