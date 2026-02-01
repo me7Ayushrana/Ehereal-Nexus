@@ -9,6 +9,7 @@ import Preloader from "@/components/Preloader";
 import StarfieldBackground from "@/components/StarfieldBackground";
 import AlienOverlay from "@/components/AlienOverlay";
 import AlienGlyphs from "@/components/AlienGlyphs";
+import MobileNotice from "@/components/MobileNotice";
 // ...
 
 const inter = Inter({
@@ -42,6 +43,7 @@ export default function RootLayout({
       >
         <SmoothScroll>
           <Preloader />
+          <MobileNotice />
           <CustomCursor />
           <AlienOverlay />
           <AlienGlyphs />
