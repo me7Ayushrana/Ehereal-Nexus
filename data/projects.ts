@@ -19,7 +19,7 @@ export const projects = [
         id: "upload-2",
         title: "PROJECT GAMMA",
         category: "RESEARCH",
-        image: "/projects/project-gamma.jpg",
+        image: "/projects/project-arm.jpg",
         description: "Advanced computational matrix for data synthesis. Awaiting final calibration.",
         stats: { load: "45%", core: "STABLE", net: "ACTIVE" }
     },
@@ -43,7 +43,7 @@ export const projects = [
         id: "lab",
         title: "PROJECT ZETA",
         category: "R&D INFRASTRUCTURE",
-        image: "/projects/project-lab.jpg",
+        image: "/projects/neuro-lab.jpg",
         description: "High-voltage testing rig for synaptic transmission simulation. Primary workbench for hardware calibration.",
         stats: { voltage: "50kV", safety: "ISO-9", status: "ONLINE" }
     },
@@ -67,7 +67,7 @@ export const projects = [
         id: "rover-2",
         title: "PROJECT IOTA",
         category: "SURVEILLANCE",
-        image: "/projects/ai-rover-v2.jpg",
+        image: "/projects/ai-rover-v1.jpg",
         description: "Enhanced optical array with thermal imaging capabilities. Autonomous patrol mode enabled.",
         stats: { range: "5km", precision: "99.9%", mode: "STEALTH" }
     },
@@ -83,7 +83,7 @@ export const projects = [
         id: "kinetic",
         title: "PROJECT LAMBDA",
         category: "PROPULSION",
-        image: "/projects/kinetic-drive.jpg",
+        image: "/projects/robotic-arm.jpg",
         description: "High-torque compact motor for exoskeleton limb actuation.",
         stats: { torque: "12Nm", rpm: "4500", eff: "94%" }
     },

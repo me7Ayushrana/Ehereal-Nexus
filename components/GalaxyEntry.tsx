@@ -93,6 +93,11 @@ export default function GalaxyEntry() {
         router.push("/projects");
     };
 
+    useMemo(() => {
+        // Prefetch the projects page for instant transition
+        router.prefetch("/projects");
+    }, [router]);
+
     return (
         <section id="galaxy" className="relative h-[80vh] w-full bg-void flex flex-col items-center justify-start pt-12 overflow-hidden">
             <div className="absolute inset-0 z-0 cursor-pointer" onClick={handleDive}>
