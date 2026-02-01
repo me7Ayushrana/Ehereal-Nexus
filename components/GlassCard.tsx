@@ -3,31 +3,30 @@ import { cn } from "@/lib/utils";
 interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     className?: string;
-    intensity?: "low" | "medium" | "high";
+    variant?: "default" | "panel";
 }
 
 export default function GlassCard({
     children,
     className,
-    intensity = "medium",
+    variant = "default",
     ...props
 }: GlassCardProps) {
-    const intensityMap = {
-        low: "bg-white/[0.02] backdrop-blur-sm border-white/5",
-        medium: "bg-white/[0.05] backdrop-blur-md border-white/10",
-        high: "bg-white/[0.08] backdrop-blur-lg border-white/20",
-    };
-
     return (
         <div
             className={cn(
-                "rounded-2xl border transition-all duration-300 hover:border-neon-cyan/50 hover:shadow-[0_0_30px_-5px_var(--color-neon-cyan)]",
-                intensityMap[intensity],
+                "rounded-2xl transition-all duration-300 relative overflow-hidden group",
+                variant === "default" ? "glass-card hover:scale-[1.02]" : "glass-panel",
                 className
             )}
             {...props}
         >
-            {children}
+            {/* Hover Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+            <div className="relative z-10">
+                {children}
+            </div>
         </div>
     );
 }
