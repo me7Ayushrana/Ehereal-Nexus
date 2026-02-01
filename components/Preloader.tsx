@@ -16,7 +16,7 @@ export default function Preloader() {
         document.body.style.overflow = "hidden";
 
         const startTime = Date.now();
-        const duration = 1500; // Slightly longer for smoother loading
+        const duration = 800; // Faster for smoother loading
 
         let animationFrameId: number;
 

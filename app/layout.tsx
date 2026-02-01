@@ -37,7 +37,7 @@ export default function RootLayout({
         className={cn(
           inter.variable,
           orbitron.variable,
-          "antialiased bg-void text-foreground overflow-x-hidden selection:bg-neon-cyan/30 cursor-none"
+          "antialiased bg-void text-foreground overflow-x-hidden selection:bg-neon-cyan/30 md:cursor-none"
         )}
       >
         <SmoothScroll>

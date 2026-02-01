@@ -3,7 +3,7 @@ export const projects = [
         id: "nova-1",
         title: "PROJECT ALPHA",
         category: "BIOMECHANICS",
-        image: "/projects/project-alpha.png",
+        image: "/projects/project-alpha.jpg",
         description: "AI-driven haptic feedback system with sub-ms latency. Enhanced resin composite shell.",
         stats: { energy: "98%", stability: "100%", latency: "0.2ms" }
     },
@@ -51,7 +51,7 @@ export const projects = [
         id: "rover-1",
         title: "PROJECT ETA",
         category: "AUTONOMOUS SYSTEMS",
-        image: "/projects/project-rover.png",
+        image: "/projects/project-rover.jpg",
         description: "Terrain-adaptive mobility unit with LiDAR mapping and ultrasonic sensor array.",
         stats: { speed: "2.5m/s", battery: "12h", sensors: "LIDAR" }
     },
@@ -67,7 +67,7 @@ export const projects = [
         id: "rover-2",
         title: "PROJECT IOTA",
         category: "SURVEILLANCE",
-        image: "/projects/ai-rover-v2.png",
+        image: "/projects/ai-rover-v2.jpg",
         description: "Enhanced optical array with thermal imaging capabilities. Autonomous patrol mode enabled.",
         stats: { range: "5km", precision: "99.9%", mode: "STEALTH" }
     },
@@ -75,7 +75,7 @@ export const projects = [
         id: "ocular",
         title: "PROJECT KAPPA",
         category: "VISION SYSTEMS",
-        image: "/projects/ocular-sensor.png",
+        image: "/projects/ocular-sensor.jpg",
         description: "Biomimetic visual processing unit for autonomous drones. Wide-spectrum analysis.",
         stats: { res: "8K", fov: "180°", analysis: "REAL-TIME" }
     },
