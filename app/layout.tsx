@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
-import Preloader from "@/components/Preloader";
 import StarfieldBackground from "@/components/StarfieldBackground";
 import AlienOverlay from "@/components/AlienOverlay";
 import AlienGlyphs from "@/components/AlienGlyphs";
@@ -42,7 +41,6 @@ export default function RootLayout({
         )}
       >
         <SmoothScroll>
-          <Preloader />
           <MobileNotice />
           <CustomCursor />
           <AlienOverlay />

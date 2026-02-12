@@ -55,7 +55,7 @@ export default function HolographicCard({ project, index }: { project: Project, 
         >
             {/* Holographic Frame */}
             <div
-                className="absolute inset-0 border border-neon-cyan/30 bg-void/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_0_15px_rgba(0,255,255,0.1)] transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] group-hover:border-neon-cyan/60"
+                className="absolute inset-0 border border-neon-cyan/30 bg-void/95 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(0,255,255,0.1)] transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] group-hover:border-neon-cyan/60"
                 style={{ transform: "translateZ(0px)" }}
             >
                 {/* Scanline Overlay */}

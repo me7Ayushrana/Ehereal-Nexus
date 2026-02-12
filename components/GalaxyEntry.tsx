@@ -1,26 +1,26 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Text, Float } from "@react-three/drei";
 import * as THREE from "three";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 
-function GalaxyParticles({ onDive }: { onDive: () => void }) {
+function GalaxyParticles({ onDive, isDiving }: { onDive: () => void; isDiving: boolean }) {
     const pointsRef = useRef<THREE.Points>(null);
 
     // Galaxy parameters
     const parameters = {
-        count: 10000,
+        count: 2000,
         size: 0.02,
         radius: 5,
         branches: 3,
         spin: 1,
         randomness: 0.2,
         randomnessPower: 3,
-        insideColor: "#ffffff", // Pure White Core
-        outsideColor: "#a855f7", // Deep Purple Edge
+        insideColor: "#ffffff",
+        outsideColor: "#a855f7",
     };
 
     const particles = useMemo(() => {
@@ -64,7 +64,21 @@ function GalaxyParticles({ onDive }: { onDive: () => void }) {
 
     useFrame((state, delta) => {
         if (pointsRef.current) {
+            // Base rotation
             pointsRef.current.rotation.y += delta * 0.1;
+
+            if (isDiving) {
+                // WARP DRIVE EFFECT
+                // significantly increase rotation speed
+                pointsRef.current.rotation.y += delta * 12.0;
+
+                // Pull camera into the center
+                // We use lerp for a smooth but fast acceleration
+                state.camera.position.lerp(new THREE.Vector3(0, 0, 0), delta * 5.0);
+
+                // Optional: visual distortion could be added here by modifying material uniforms
+                // but camera movement is usually sufficient for the "warp" feel.
+            }
         }
     });
 
@@ -81,30 +95,51 @@ function GalaxyParticles({ onDive }: { onDive: () => void }) {
                     vertexColors={true}
                 />
             </points>
-            {/* 3D Text removed in favor of HTML overlay */}
+            {/* Hit box for easier clicking */}
+            <mesh onClick={onDive} visible={false}>
+                <sphereGeometry args={[25, 32, 32]} />
+                <meshBasicMaterial side={THREE.DoubleSide} />
+            </mesh>
         </group>
     );
 }
 
 export default function GalaxyEntry() {
     const router = useRouter();
+    const [isDiving, setIsDiving] = useState(false);
 
     const handleDive = () => {
-        router.push("/projects");
+        if (isDiving) return; // Prevent double trigger
+        setIsDiving(true);
+
+        // Wait for animation to play before navigating
+        setTimeout(() => {
+            router.push("/projects");
+        }, 400); // 400ms match roughly with the camera lerp speed to 0
     };
 
-    useMemo(() => {
+    useEffect(() => {
         // Prefetch the projects page for instant transition
         router.prefetch("/projects");
     }, [router]);
 
     return (
         <section id="galaxy" className="relative h-[80vh] w-full bg-void flex flex-col items-center justify-start pt-12 overflow-hidden">
-            <div className="absolute inset-0 z-0 cursor-pointer" onClick={handleDive}>
+            {/* 3D Canvas Container - Using onClick to handle all interactions on the canvas wrapper */}
+            <div
+                className="absolute inset-0 z-0 cursor-pointer"
+                onClick={handleDive}
+            >
                 <Canvas camera={{ position: [0, 3, 5], fov: 60 }}>
                     <color attach="background" args={['#000000']} />
-                    <GalaxyParticles onDive={handleDive} />
-                    <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+                    <GalaxyParticles onDive={handleDive} isDiving={isDiving} />
+                    <OrbitControls
+                        enableZoom={false}
+                        autoRotate={!isDiving} // Stop auto rotation logic when diving, we handle it manually
+                        autoRotateSpeed={0.5}
+                        enablePan={false}
+                        enabled={!isDiving} // Disable controls during dive
+                    />
                 </Canvas>
             </div>
 
@@ -113,9 +148,13 @@ export default function GalaxyEntry() {
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     whileHover={{ scale: 1.05 }}
+                    animate={isDiving ? { opacity: 0, scale: 0, transition: { duration: 0.3 } } : {}}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="pointer-events-auto cursor-pointer group"
-                    onClick={handleDive}
+                    onClick={(e) => {
+                        e.stopPropagation(); // Prevent bubbling to parent if we handle it here
+                        handleDive();
+                    }}
                 >
                     <div className="glass-panel px-10 py-4 rounded-full border border-white/10 shadow-[0_0_50px_-12px_rgba(168,85,247,0.3)] hover:shadow-[0_0_80px_-12px_rgba(168,85,247,0.6)] transition-all duration-300 backdrop-blur-md bg-black/40 group-hover:bg-black/50">
                         <h2 className="text-xl md:text-3xl font-display tracking-widest text-center text-white/90 uppercase">
